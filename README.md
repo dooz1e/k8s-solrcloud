@@ -41,5 +41,14 @@ http://172.16.31.201:8983/solr/index.html 로 접속가능
 6. 컬렉션 생성
 
 
+
 ![image](https://github.com/dooz1e/k8s-solrcloud/assets/170922638/7c19b915-5bdb-4b2b-8806-c5aa150b1b36)
+
+
+
+7. 데이터 색인
+
+
+   ![image](https://github.com/dooz1e/k8s-solrcloud/assets/170922638/5d052b78-edda-46c7-b6e6-eae7f12b2899)
+
 

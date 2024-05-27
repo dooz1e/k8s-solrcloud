@@ -5,4 +5,4 @@ metadata:
   namespace: metallb-system
 spec:
   addresses:
-  - 172.16.31.201-172.16.31.210
+  - 172.16.31.201-172.16.31.210 # 외부 접속할 IP 대역 설정

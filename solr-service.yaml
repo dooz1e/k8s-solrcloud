@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: solr-service
+  labels:
+    app: solrcloud
+spec:
+  type: LoadBalancer #외부 ip접속용 
+  ports:
+    - port: 8983 #외부에서 접속할 포트
+      targetPort: 8983 #서비스포트
+  selector:
+    app: solrcloud

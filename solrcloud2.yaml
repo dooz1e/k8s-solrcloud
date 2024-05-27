@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: solrcloud
+  labels:
+    app: solrcloud
+spec:
+  serviceName: "solr-service"
+  replicas: 2
+  selector:
+    matchLabels:
+      app: solrcloud
+  template:
+    metadata:
+      labels:
+        app: solrcloud
+    spec:
+      terminationGracePeriodSeconds: 10
+      securityContext: #solr uid 와 volumeMounts 경로 권한 solr uid로 설정
+        runAsUser: 8983
+        fsGroup: 8983
+      containers:
+      - name: solr
+        image: harbor.kdotdev.cloud/kdot-cloud/kdot-search:1.0.master.105
+        ports:
+        - name: solr
+          containerPort: 8983
+        env:
+        - name: SOLR_JAVA_MEM
+          value: "-Xms512m -Xmx512m"
+        - name: ZK_HOST #zookeeper의 dns (zk노드명.zk서비스명.zk네임스페이스명.zk컨테이너포트)
+          value: "zookeeper-0.zookeeper-hs.solrtest.svc.cluster.local:2181,zookeeper-1.zookeeper-hs.solrtest.svc.cluster.local:2181,zookeeper-2.zookeeper-hs.solrtest.svc.cluster.local:2181"
+        volumeMounts:
+        - name: solr-data
+          mountPath: /home #pod에 데이터쌓이는 path
+      imagePullSecrets: #harbor에서 이미지 가져오기위한 secret 옵션
+        - name: harbor #시크릿명과 일치
+  volumeClaimTemplates:
+  - metadata:
+      name: solr-data
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "solr-data" #pv파일과 일치
+      resources:
+        requests:
+          storage: 10Gi

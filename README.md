@@ -24,7 +24,12 @@ http://172.16.31.201:8983/solr/index.html 로 접속가능
    $ cd /opt/solr/bin
    $ ./solr zk cp -r file:/data/ksearch_collection_configs zk:/configs
    $ Copying from 'file:/data/' to 'zk:/configs'. ZooKeeper at zookeeper-0.zookeeper-hs.solrtest.svc.cluster.local:2181,zookeeper-1.zookeeper-hs.solrtest.svc.cluster.local:2181,zookeeper-2.zookeeper-hs.solrtest.svc.cluster.local:2181
-   ![image](https://github.com/dooz1e/k8s-solrcloud/assets/170922638/219fd9f5-5be6-4bea-aebd-9f27424495ab)
+
+
+
+
+
+    ![image](https://github.com/dooz1e/k8s-solrcloud/assets/170922638/219fd9f5-5be6-4bea-aebd-9f27424495ab)
 
 
 7. 컬렉션 생성

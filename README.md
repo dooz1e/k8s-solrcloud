@@ -12,6 +12,7 @@ ex) # docker tag 34d10ec56c9a harbor.kdotdev.cloud/kdot-cloud/kdot-search:1.0.ma
 
 imagePullSecrets:
         - name: harbor 추가
+
 4. metalb를 활용한 Loadbalancer 서비스 사용(solr 페이지 외부 접속용)
  # k get svc 
 NAME           TYPE           CLUSTER-IP       EXTERNAL-IP     PORT(S)                      AGE
@@ -33,7 +34,7 @@ http://172.16.31.201:8983/solr/index.html 로 접속가능
 
 /configs 아래 경로로 컬렉션 업로드됨
 
-7. 컬렉션 생성
+6. 컬렉션 생성
 
 
 ![image](https://github.com/dooz1e/k8s-solrcloud/assets/170922638/7c19b915-5bdb-4b2b-8806-c5aa150b1b36)

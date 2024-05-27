@@ -44,8 +44,6 @@ http://172.16.31.201:8983/solr/index.html 로 접속가능
 
 ![image](https://github.com/dooz1e/k8s-solrcloud/assets/170922638/7c19b915-5bdb-4b2b-8806-c5aa150b1b36)
 
-
-
 7. 데이터 색인
 
 
